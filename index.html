@@ -15,22 +15,23 @@
 
 <style>
 :root {
-  /* Sophisticated Dark Mode Palette - Contrast Enhanced */
-  --bg-main: #09090b; /* Zinc 950 */
-  --bg-card: #18181b; /* Zinc 900 */
-  --bg-card-hover: #27272a; /* Zinc 800 */
-  --text-primary: #ffffff; /* Enhanced to pure white */
-  --text-secondary: #e4e4e7; /* Zinc 200 for better readability */
-  --text-muted: #a1a1aa; /* Zinc 400 for accessible contrast */
+  /* Clean, Academic Light Mode Palette */
+  --bg-main: #ffffff; 
+  --bg-section: #f8fafc; /* Slate 50 for alternating sections */
+  --bg-card: #ffffff; 
+  --bg-card-hover: #f1f5f9; 
+  --text-primary: #0f172a; /* Slate 900 */
+  --text-secondary: #334155; /* Slate 700 */
+  --text-muted: #64748b; /* Slate 500 */
   
   /* Brand Accents */
-  --accent-blue: #60a5fa; /* Blue 400 for higher contrast */
-  --accent-cyan: #22d3ee; /* Cyan 400 for higher contrast */
+  --accent-blue: #2563eb; /* Blue 600 */
+  --accent-cyan: #0284c7; /* Sky 600 */
   --accent-gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
   
   /* Borders */
-  --border-light: rgba(255, 255, 255, 0.12); /* Slightly more visible borders */
-  --border-focus: rgba(96, 165, 250, 0.5);
+  --border-light: rgba(15, 23, 42, 0.12); /* Slate 900 with 12% opacity */
+  --border-focus: rgba(37, 99, 235, 0.4);
 
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -63,7 +64,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 0;
 }
@@ -73,7 +74,7 @@ body::before {
   top: -20%; left: 50%;
   transform: translateX(-50%);
   width: 100vw; height: 800px;
-  background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.12) 0%, rgba(9, 9, 11, 0) 70%);
+  background: radial-gradient(ellipse at top, rgba(37, 99, 235, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -88,7 +89,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(9, 9, 11, 0.7);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-light);
@@ -111,9 +112,9 @@ nav {
   letter-spacing: 0.05em;
   padding: 3px 8px;
   border-radius: 4px;
-  background: rgba(255,255,255,0.05);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-light);
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--accent-blue);
+  border: 1px solid rgba(37, 99, 235, 0.2);
   text-transform: uppercase;
 }
 
@@ -136,12 +137,12 @@ nav {
   border-radius: 6px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #fff !important;
-  background: var(--border-light);
-  border: 1px solid rgba(255,255,255,0.1);
+  color: #ffffff !important;
+  background: var(--text-primary);
+  border: 1px solid transparent;
   transition: all 0.2s;
 }
-.nav-cta:hover { background: #fff; color: #000 !important; }
+.nav-cta:hover { background: var(--accent-blue); color: #ffffff !important; }
 
 /* ─── LAYOUT UTILS ─── */
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
@@ -200,7 +201,7 @@ h2.section-title {
   padding: 6px 12px;
   border: 1px solid var(--border-light);
   border-radius: 6px;
-  background: rgba(255,255,255,0.02);
+  background: rgba(15, 23, 42, 0.03);
   animation: fadeUp 0.8s ease both;
 }
 
@@ -252,17 +253,18 @@ h1.hero-title .gradient-text {
   border: none;
 }
 .btn-primary {
-  background: var(--text-primary);
-  color: var(--bg-main);
+  background: var(--accent-blue);
+  color: #ffffff;
 }
-.btn-primary:hover { background: #e4e4e7; transform: translateY(-1px); }
+.btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
 
 .btn-outline {
-  background: rgba(255,255,255,0.03);
+  background: #ffffff;
   color: var(--text-primary);
   border: 1px solid var(--border-light);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
-.btn-outline:hover { background: rgba(255,255,255,0.08); transform: translateY(-1px); }
+.btn-outline:hover { background: var(--bg-section); transform: translateY(-1px); }
 
 /* --- HERO VISUALIZER (CSS PLOT) --- */
 .hero-visual {
@@ -274,7 +276,7 @@ h1.hero-title .gradient-text {
   background: var(--bg-card);
   padding: 1rem;
   animation: fadeUp 0.8s 0.4s ease both;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 .visual-header {
   display: flex;
@@ -369,15 +371,18 @@ h1.hero-title .gradient-text {
 }
 
 .feature-card {
-  background: rgba(255,255,255,0.02);
+  background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 2rem;
   transition: all 0.3s;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
 }
 .feature-card:hover { 
   border-color: var(--border-focus); 
-  background: rgba(255,255,255,0.04);
+  background: var(--bg-card);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  transform: translateY(-2px);
 }
 
 .feature-num {
@@ -456,8 +461,8 @@ h1.hero-title .gradient-text {
 }
 .pipe-dot {
   width: 12px; height: 12px; border-radius: 50%;
-  border: 2px solid var(--bg-card);
-  background: var(--text-primary);
+  border: 2px solid var(--bg-main);
+  background: var(--text-secondary);
   z-index: 2;
 }
 .pipe-line {
@@ -492,7 +497,7 @@ h1.hero-title .gradient-text {
   padding: 4px 10px;
   border-radius: 4px;
   font-family: var(--font-mono);
-  background: rgba(255,255,255,0.05);
+  background: rgba(15, 23, 42, 0.04);
   border: 1px solid var(--border-light);
   color: var(--text-secondary);
 }
@@ -506,9 +511,14 @@ h1.hero-title .gradient-text {
 }
 
 .metric-card {
-  border-left: 2px solid var(--accent-blue);
+  border-left: 3px solid var(--accent-blue);
   padding: 1rem 1.5rem;
-  background: rgba(255,255,255,0.02);
+  background: var(--bg-card);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  border-top: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
 .metric-val {
@@ -542,6 +552,7 @@ h1.hero-title .gradient-text {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
 }
 
 .case-tag {
@@ -550,9 +561,12 @@ h1.hero-title .gradient-text {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--text-secondary);
+  color: var(--accent-blue);
+  background: rgba(37, 99, 235, 0.08);
+  padding: 4px 8px;
+  border-radius: 4px;
   margin-bottom: 1rem;
-  display: block;
+  display: inline-block;
 }
 
 .case-card h4 {
@@ -582,6 +596,7 @@ h1.hero-title .gradient-text {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 2.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
 }
 
 .transfer-card h3 {
@@ -627,9 +642,40 @@ h1.hero-title .gradient-text {
   color: var(--text-muted);
 }
 
+/* ─── FIGURES & IMAGES ─── */
+.image-figure {
+  margin: 2rem 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+.image-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  display: block;
+  margin: 0 auto;
+}
+.image-figure figcaption {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  text-align: left;
+}
+.image-figure.full-width {
+  margin-top: 3rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* ─── HIGHLIGHT BOX ─── */
 .highlight-box {
-  background: rgba(59, 130, 246, 0.05);
+  background: rgba(37, 99, 235, 0.03);
   border: 1px solid var(--border-focus);
   border-radius: var(--radius-md);
   padding: 2rem;
@@ -702,11 +748,16 @@ h1.hero-title .gradient-text {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 2rem;
-  transition: border-color 0.2s;
+  transition: all 0.2s;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
 }
-.resource-card:hover { border-color: var(--text-secondary); }
+.resource-card:hover { 
+  border-color: var(--accent-blue); 
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
 
 .resource-card h3 {
   font-size: 1.125rem;
@@ -747,7 +798,7 @@ h1.hero-title .gradient-text {
   justify-content: space-between;
   padding: 1rem 1.5rem;
   border-bottom: 1px solid var(--border-light);
-  background: rgba(0,0,0,0.2);
+  background: rgba(15, 23, 42, 0.02);
 }
 
 .cite-header span {
@@ -934,7 +985,7 @@ footer p {
 </section>
 
 <!-- ─── FEATURES ─── -->
-<section id="features" style="background: rgba(255,255,255,0.01);">
+<section id="features" style="background: var(--bg-section);">
   <div class="container fade-in">
     <span class="section-label">Capabilities</span>
     <h2 class="section-title">Model Highlights</h2>
@@ -1001,52 +1052,10 @@ footer p {
         </table>
       </div>
 
-      <div class="arch-diagram">
-        <div class="pipeline-steps">
-          <div class="pipe-step">
-            <div class="pipe-connector"><div class="pipe-dot"></div><div class="pipe-line"></div></div>
-            <div class="pipe-box">
-              <h4>GraphCast Input</h4>
-              <p>0.25° (28 km) global forecast · 6-hourly · 17 atmospheric fields at 3 pressure levels</p>
-            </div>
-          </div>
-          <div class="pipe-step">
-            <div class="pipe-connector"><div class="pipe-dot"></div><div class="pipe-line"></div></div>
-            <div class="pipe-box">
-              <h4>Conditioning Assembly</h4>
-              <p>Bilinear interp to 1 km grid + static terrain + solar zenith angle</p>
-            </div>
-          </div>
-          <div class="pipe-step">
-            <div class="pipe-connector"><div class="pipe-dot"></div><div class="pipe-line"></div></div>
-            <div class="pipe-box">
-              <h4>3D U-Net + LCM Denoiser</h4>
-              <p>Iterative reverse diffusion · 4–25 steps · joint spatial-temporal processing</p>
-            </div>
-          </div>
-          <div class="pipe-step">
-            <div class="pipe-connector"><div class="pipe-dot"></div><div class="pipe-line"></div></div>
-            <div class="pipe-box">
-              <h4>Patch Inference & Blending</h4>
-              <p>256 × 256 tiles · cosine-tapered spatial merging over arbitrary domains</p>
-            </div>
-          </div>
-          <div class="pipe-step">
-            <div class="pipe-connector"><div class="pipe-dot" style="background: var(--accent-cyan); border-color: rgba(6,182,212,0.3);"></div></div>
-            <div class="pipe-box" style="padding-bottom: 0;">
-              <h4>1 km Hourly Output</h4>
-              <div class="var-chips">
-                <span class="var-chip">Precipitation</span>
-                <span class="var-chip">2-m Temp</span>
-                <span class="var-chip">Humidity</span>
-                <span class="var-chip">Wind (u/v)</span>
-                <span class="var-chip">Surface Press</span>
-                <span class="var-chip">Radiation</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <figure class="image-figure">
+        <img src="WhatsApp%20Image%202026-04-11%20at%2010.44.33%20AM.jpg" alt="AiRCast-SR Architecture Workflow and LCM Schematic">
+        <figcaption><strong>Figure 1:</strong> High-level atmospheric super-resolution workflow, Latent Consistency Model (LCM) schematic, and patch-based spatial blending strategy.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -1054,7 +1063,7 @@ footer p {
 <div class="divider"></div>
 
 <!-- ─── RESULTS ─── -->
-<section id="results" style="background: rgba(255,255,255,0.01);">
+<section id="results" style="background: var(--bg-section);">
   <div class="container fade-in">
     <span class="section-label">Evaluation</span>
     <h2 class="section-title">Performance across regimes</h2>
@@ -1098,6 +1107,11 @@ footer p {
         <p>Synoptic-scale frontal passage during spring transition, demonstrating AiRCast-SR across a broad dynamical regime spanning temperature and precipitation extremes.</p>
       </div>
     </div>
+
+    <figure class="image-figure full-width fade-in">
+      <img src="multipanel_IC2022-12-22T0000_clean.jpg" alt="Multipanel evaluation for Winter Storm Elliott">
+      <figcaption><strong>Figure 2:</strong> Multipanel evaluation for Winter Storm Elliott (Dec 22, 2022). Comparing AORC (ground truth), raw GraphCast input, operational HRRR, and AiRCast-SR (ASR) across Downward LW Radiation, Temperature, V-Wind, and Precipitation. PSD and scatter plots highlight AiRCast-SR's structural fidelity and zero-bias capability.</figcaption>
+    </figure>
 
     <div class="highlight-box">
       <h4>Spectral fidelity & perception–distortion</h4>
@@ -1162,7 +1176,7 @@ footer p {
 <div class="divider"></div>
 
 <!-- ─── RESOURCES & TEAM ─── -->
-<section id="team" style="background: rgba(255,255,255,0.01);">
+<section id="team" style="background: var(--bg-section);">
   <div class="container fade-in">
     <span class="section-label">Resources & People</span>
     <h2 class="section-title">Open Science & Team</h2>
